@@ -5,10 +5,14 @@ extends CharacterBody2D
 @export var health = 100
 @export var shield = 1
 @export var hit_damage = 10
+@export var current_exp = 0
+@export var max_exp = 10
 
 var screen_size
 var is_started = false
 signal health_changed(old_value: int, new_value: int)
+signal xp_changed(current: int, max: int)
+signal level_increased()
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -17,23 +21,14 @@ func _ready():
 func _process(delta):
 	if is_started:
 		$AnimatedSprite2D.play()
-		#var velocity = Vector2(0, -1) 
 		velocity += Vector2(0, -0.4) 
-		#velocity = velocity.normalized() * speed
-		#velocity = velocity.normalized() 
-		print(velocity)
-		#position += velocity * delta
-		#position = position.clamp(Vector2.ZERO, screen_size)
-		
-		#velocity.y += gravity * delta
+
 		velocity.y = clamp(velocity.y, -max_speed, max_speed)
 		velocity.x = clamp(velocity.x, -1, 1)
-		print(velocity)
 		var bounce_strength = 0.8
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			velocity = velocity.bounce(collision.get_normal()) * bounce_strength
-			print("eee",velocity)
 			var body = collision.get_collider()
 			if body.has_method("is_enemy"):
 				apply_damage(body.damage)
@@ -45,7 +40,6 @@ func start(x: int):
 	position = Vector2(x, position.y)
 
 func apply_damage(damage: int):
-	print("apply dammage", damage)
 	var rest = 0
 	if not is_started:
 		return
@@ -68,7 +62,16 @@ func apply_damage(damage: int):
 		$CollisionShape2D.set_deferred("disabled", true)
 	
 	health_changed.emit(shield, health)
-#func _on_body_entered(body: Node):
-	#if body is Enemy:
-		#apply_damage(body.damage)
-		#health_changed.emit(shield, health)
+
+
+func gain_xp(value: int):
+	current_exp += value
+	if current_exp >= max_exp:
+		level_up()
+		level_increased.emit()
+		
+	xp_changed.emit(current_exp, max_exp)
+
+func level_up() -> void: 
+	current_exp -= max_exp 
+	max_exp = max_exp*2

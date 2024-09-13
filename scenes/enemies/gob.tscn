@@ -1,18 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyk6lh081qj1w"]
+[gd_scene load_steps=8 format=3 uid="uid://d280o1d2u6jm2"]
 
-[ext_resource type="Script" path="res://scripts/bog.gd" id="1_0rqj6"]
-[ext_resource type="Texture2D" uid="uid://brlvvb2tpwnk7" path="res://assets/enemies/Sheep.png" id="2_384un"]
+[ext_resource type="Script" path="res://scripts/gob.gd" id="1_cdmo2"]
+[ext_resource type="Texture2D" uid="uid://brlvvb2tpwnk7" path="res://assets/enemies/Sheep.png" id="2_ilg68"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aogck"]
-atlas = ExtResource("2_384un")
+atlas = ExtResource("2_ilg68")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ev3if"]
-atlas = ExtResource("2_384un")
+atlas = ExtResource("2_ilg68")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7lbua"]
-atlas = ExtResource("2_384un")
+atlas = ExtResource("2_ilg68")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fchq5"]
@@ -36,10 +36,10 @@ animations = [{
 radius = 4.99327
 height = 17.9977
 
-[node name="Bog" type="RigidBody2D"]
+[node name="Gob" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
-script = ExtResource("1_0rqj6")
+script = ExtResource("1_cdmo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, -10)

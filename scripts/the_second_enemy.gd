@@ -10,9 +10,9 @@ var move_timer: float = 0.0 # Timer for switching direction
 func _ready():
 	super._ready()
 	screen_size = get_viewport_rect().size
-	speed = 2
-	damage = 5
-	xp = 5
+	speed = 8
+	damage = 10
+	xp = 10
 	# Randomize the move_timer with a random value between the min and max time
 	move_timer = randf_range(min_change_time, max_change_time)
 	

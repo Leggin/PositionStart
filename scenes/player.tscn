@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_e568c"]
 [ext_resource type="Texture2D" uid="uid://bhys1edgvymqq" path="res://assets/Player 2.png" id="2_iv3i6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2pnf"]
-size = Vector2(23, 22)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jsrn8"]
+height = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2yul4"]
 atlas = ExtResource("2_iv3i6")
@@ -32,10 +32,11 @@ animations = [{
 position = Vector2(141, 390)
 script = ExtResource("1_e568c")
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 5)
-shape = SubResource("RectangleShape2D_s2pnf")
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_jsrn8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lc4uw")

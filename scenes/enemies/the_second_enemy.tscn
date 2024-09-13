@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyk6lh081qj1w"]
+
+[ext_resource type="Script" path="res://scripts/the_second_enemy.gd" id="1_a56h5"]
+[ext_resource type="Texture2D" uid="uid://dy4a5jgsex84r" path="res://assets/enemies/bog/bog1.png" id="2_7vyb6"]
+[ext_resource type="Texture2D" uid="uid://bfbf214dbtt8y" path="res://assets/enemies/bog/bog.png" id="3_v4ale"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fchq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7vyb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v4ale")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmthp"]
+radius = 5.99925
+height = 11.9985
+
+[node name="TheSecond" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_a56h5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fchq5")
+frame_progress = 0.143739
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+rotation = -1.58664
+shape = SubResource("CapsuleShape2D_dmthp")

@@ -17,3 +17,6 @@ func _input(event):
 	elif !$Player.is_started && event is InputEventMouseMotion:
 		$Player.position.x = event.position.x
 		
+
+func give_xp(value: int):
+	$Player.gain_xp(value)
