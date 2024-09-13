@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyk6lh081qj1w"]
+
+[ext_resource type="Script" path="res://scripts/bog.gd" id="1_0rqj6"]
+[ext_resource type="Texture2D" uid="uid://brlvvb2tpwnk7" path="res://assets/enemies/Sheep.png" id="2_384un"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aogck"]
+atlas = ExtResource("2_384un")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev3if"]
+atlas = ExtResource("2_384un")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lbua"]
+atlas = ExtResource("2_384un")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fchq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aogck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev3if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lbua")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmthp"]
+radius = 4.99327
+height = 17.9977
+
+[node name="Bog" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_0rqj6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -10)
+sprite_frames = SubResource("SpriteFrames_fchq5")
+frame_progress = 0.143739
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+rotation = -1.58664
+shape = SubResource("CapsuleShape2D_dmthp")

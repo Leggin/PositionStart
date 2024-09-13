@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://1xwmqemtl3u1"]
+
+[sub_resource type="GDScript" id="GDScript_uiqva"]
+script/source = "extends Area2D
+
+@export var enemy_scene: PackedScene
+@export var count: int
+@export var x_spread: float
+@export var y_spread: float
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for i in range(count):
+		var mob = enemy_scene.instantiate()
+		
+		mob.global_position.x = floor(randf_range(global_position.x - x_spread, global_position.x + x_spread))
+		mob.global_position.y = floor(randf_range(global_position.y - y_spread, global_position.y + y_spread))
+		mob.visible = true
+		get_tree().root.add_child.call_deferred(mob)
+		
+		
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="EnemySpawner" type="Area2D"]
+script = SubResource("GDScript_uiqva")

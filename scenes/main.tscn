@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf5k7ocs8ygg7"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_inn0m"]
+[ext_resource type="PackedScene" uid="uid://1xwmqemtl3u1" path="res://scenes/enemy_spawner.tscn" id="2_q1pgw"]
+[ext_resource type="PackedScene" uid="uid://cgdfveq3e4k8c" path="res://scenes/player.tscn" id="2_ru0w6"]
+[ext_resource type="PackedScene" uid="uid://cyk6lh081qj1w" path="res://scenes/enemies/bog.tscn" id="3_eapxe"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="5_mairs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daf6o"]
+bg_color = Color(0.931427, 0.502234, 0.425773, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn5r7"]
+bg_color = Color(0.874254, 0.813282, 0.446279, 1)
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+
+[node name="Gameloop" type="Node2D"]
+script = ExtResource("1_inn0m")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_q1pgw")]
+position = Vector2(137, 293)
+enemy_scene = ExtResource("3_eapxe")
+count = 30
+x_spread = 200.0
+y_spread = 49.0
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_ru0w6")]
+position = Vector2(136, 393)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_mairs")
+
+[node name="HealthBar" type="ProgressBar" parent="HUD"]
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 223.0
+offset_bottom = 17.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_daf6o")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="HealthPoints" type="Label" parent="HUD"]
+offset_left = 1.0
+offset_top = 33.0
+offset_right = 41.0
+offset_bottom = 56.0
+
+[node name="ShieldBar" type="ProgressBar" parent="HUD"]
+offset_left = 225.0
+offset_top = 7.0
+offset_right = 298.0
+offset_bottom = 17.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_cn5r7")
+value = 20.0
+show_percentage = false
