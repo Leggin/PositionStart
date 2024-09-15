@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf5k7ocs8ygg7"]
+[gd_scene load_steps=12 format=3 uid="uid://cf5k7ocs8ygg7"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_inn0m"]
 [ext_resource type="PackedScene" uid="uid://1xwmqemtl3u1" path="res://scenes/enemy_spawner.tscn" id="2_q1pgw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d280o1d2u6jm2" path="res://scenes/enemies/gob.tscn" id="3_f4upp"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="5_mairs"]
 [ext_resource type="FontFile" uid="uid://b8vsutbi4cnjf" path="res://assets/I-pixel-u.ttf" id="6_ooids"]
+[ext_resource type="Texture2D" uid="uid://7rbdg0ce31pk" path="res://assets/background.png" id="8_ix7os"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daf6o"]
 bg_color = Color(0.931427, 0.502234, 0.425773, 1)
@@ -55,10 +56,16 @@ value = 50.0
 show_percentage = false
 
 [node name="LevelText" type="Label" parent="HUD"]
-offset_left = 160.0
-offset_top = 25.0
-offset_right = 200.0
-offset_bottom = 48.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 16.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("6_ooids")
 text = "1"
 
@@ -80,16 +87,23 @@ step = 1.0
 show_percentage = false
 
 [node name="LevelString" type="Label" parent="HUD"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -175.5
-offset_right = 9.0
-offset_bottom = -152.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -23.0
+offset_right = -28.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("6_ooids")
 text = "lvl"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.392157, 0.501961, 0.592157, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(143, 194)
+scale = Vector2(0.820312, 0.820312)
+texture = ExtResource("8_ix7os")

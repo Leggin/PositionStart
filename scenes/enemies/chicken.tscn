@@ -1,17 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyk6lh081qj1w"]
+[gd_scene load_steps=6 format=3 uid="uid://rkl3jtkotaty"]
 
-[ext_resource type="Script" path="res://scripts/the_second_enemy.gd" id="1_a56h5"]
-[ext_resource type="Texture2D" uid="uid://dy4a5jgsex84r" path="res://assets/enemies/bog/bog1.png" id="2_7vyb6"]
-[ext_resource type="Texture2D" uid="uid://bfbf214dbtt8y" path="res://assets/enemies/bog/bog.png" id="3_v4ale"]
+[ext_resource type="Script" path="res://scenes/enemies/chicken.gd" id="1_nlmm3"]
+[ext_resource type="Texture2D" uid="uid://dy4a5jgsex84r" path="res://assets/enemies/bog/bog1.png" id="2_p1ue8"]
+[ext_resource type="Texture2D" uid="uid://bfbf214dbtt8y" path="res://assets/enemies/bog/bog.png" id="3_85wkx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fchq5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7vyb6")
+"texture": ExtResource("2_p1ue8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_v4ale")
+"texture": ExtResource("3_85wkx")
 }],
 "loop": true,
 "name": &"default",
@@ -22,10 +22,10 @@ animations = [{
 radius = 5.99925
 height = 11.9985
 
-[node name="TheSecond" type="RigidBody2D"]
+[node name="Chicken" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
-script = ExtResource("1_a56h5")
+script = ExtResource("1_nlmm3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

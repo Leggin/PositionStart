@@ -17,7 +17,6 @@ signal level_increased()
 func _ready():
 	screen_size = get_viewport_rect().size
 	
-	
 func _process(delta):
 	if is_started:
 		$AnimatedSprite2D.play()
@@ -75,3 +74,4 @@ func gain_xp(value: int):
 func level_up() -> void: 
 	current_exp -= max_exp 
 	max_exp = max_exp*2
+	$AnimatedSprite2D.sprite_frames = load("res://assets/character/chicken/chicken.tres")
