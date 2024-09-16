@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr17q2pi7b37y"
-path="res://.godot/imported/Chick.png-c32acbf982e40ffc662e6098d40a2e30.ctex"
+uid="uid://j2hujj70bo8"
+path="res://.godot/imported/Worm.png-11f42cdf64682113997aab9fc4a8a3ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/Chick.png"
-dest_files=["res://.godot/imported/Chick.png-c32acbf982e40ffc662e6098d40a2e30.ctex"]
+source_file="res://assets/enemies/Worm.png"
+dest_files=["res://.godot/imported/Worm.png-11f42cdf64682113997aab9fc4a8a3ec.ctex"]
 
 [params]
 

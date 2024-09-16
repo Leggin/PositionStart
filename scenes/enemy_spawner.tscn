@@ -11,10 +11,12 @@ script/source = "extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(count):
-		var mob = enemy_scene.instantiate()
+		var mob: RigidBody2D = enemy_scene.instantiate()
 		
-		mob.global_position.x = floor(randf_range(global_position.x - x_spread, global_position.x + x_spread))
-		mob.global_position.y = floor(randf_range(global_position.y - y_spread, global_position.y + y_spread))
+		#mob.global_position.x = floor(randf_range(global_position.x - x_spread, global_position.x + x_spread))
+		#mob.global_position.y = floor(randf_range(global_position.y - y_spread, global_position.y + y_spread))
+		mob.position.x = global_position.x + floor(randf_range(-x_spread, x_spread))
+		mob.position.y = global_position.y + floor(randf_range(-y_spread, y_spread))
 		mob.visible = true
 		get_tree().root.add_child.call_deferred(mob)
 		

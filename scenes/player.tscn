@@ -4,19 +4,19 @@
 [ext_resource type="SpriteFrames" uid="uid://dqnl1pfr3ww6y" path="res://assets/character/chick.tres" id="2_1uit7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ytt0g"]
-radius = 5.0
+radius = 7.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(139, 396)
 script = ExtResource("1_e568c")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_ytt0g")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -21)
-scale = Vector2(2, 2)
+position = Vector2(0, -3)
 sprite_frames = ExtResource("2_1uit7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_ytt0g")

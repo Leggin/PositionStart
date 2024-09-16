@@ -1,13 +1,127 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf5k7ocs8ygg7"]
+[gd_scene load_steps=28 format=3 uid="uid://cf5k7ocs8ygg7"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_inn0m"]
 [ext_resource type="PackedScene" uid="uid://1xwmqemtl3u1" path="res://scenes/enemy_spawner.tscn" id="2_q1pgw"]
 [ext_resource type="PackedScene" uid="uid://cgdfveq3e4k8c" path="res://scenes/player.tscn" id="2_ru0w6"]
-[ext_resource type="PackedScene" uid="uid://cyk6lh081qj1w" path="res://scenes/enemies/the_second_enemy.tscn" id="3_eapxe"]
-[ext_resource type="PackedScene" uid="uid://d280o1d2u6jm2" path="res://scenes/enemies/gob.tscn" id="3_f4upp"]
+[ext_resource type="Script" path="res://scripts/worm.gd" id="3_yinyh"]
+[ext_resource type="Texture2D" uid="uid://j2hujj70bo8" path="res://assets/enemies/Worm.png" id="4_h34vm"]
+[ext_resource type="Texture2D" uid="uid://brlvvb2tpwnk7" path="res://assets/enemies/Sheep.png" id="4_ntxhc"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="5_mairs"]
 [ext_resource type="FontFile" uid="uid://b8vsutbi4cnjf" path="res://assets/I-pixel-u.ttf" id="6_ooids"]
 [ext_resource type="Texture2D" uid="uid://7rbdg0ce31pk" path="res://assets/background.png" id="8_ix7os"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8gdr"]
+atlas = ExtResource("4_ntxhc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2yef"]
+atlas = ExtResource("4_ntxhc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7jdg"]
+atlas = ExtResource("4_ntxhc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufn1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8gdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2yef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7jdg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmthp"]
+radius = 4.99327
+height = 17.9977
+
+[sub_resource type="PackedScene" id="PackedScene_h6sxi"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Sheep", "collision_mask", "gravity_scale", "script", "RigidBody2D", "AnimatedSprite2D", "texture_filter", "position", "sprite_frames", "CollisionShape2D", "rotation", "shape"),
+"node_count": 3,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 4, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 5, 5, -1, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 9, -1, 3, 7, 6, 10, 7, 11, 8, 0),
+"variants": [0, 0.0, ExtResource("3_yinyh"), 1, Vector2(-3, -10), SubResource("SpriteFrames_ufn1q"), Vector2(-1, -1), -1.58664, SubResource("CapsuleShape2D_dmthp")],
+"version": 3
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qns31"]
+atlas = ExtResource("4_h34vm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2jr2"]
+atlas = ExtResource("4_h34vm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m1fi"]
+atlas = ExtResource("4_h34vm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngdxp"]
+atlas = ExtResource("4_h34vm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyji0"]
+atlas = ExtResource("4_h34vm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdjjg"]
+atlas = ExtResource("4_h34vm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fchq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qns31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2jr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m1fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngdxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyji0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdjjg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q45av"]
+radius = 3.0
+height = 34.0
+
+[sub_resource type="PackedScene" id="PackedScene_5ggow"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Worm", "collision_mask", "gravity_scale", "script", "RigidBody2D", "AnimatedSprite2D", "texture_filter", "position", "sprite_frames", "frame_progress", "CollisionShape2D", "rotation", "shape"),
+"node_count": 3,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 4, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 5, 5, -1, 4, 6, 3, 7, 4, 8, 5, 9, 6, 0, 0, 0, 10, 10, -1, 3, 7, 7, 11, 8, 12, 9, 0),
+"variants": [0, 0.0, ExtResource("3_yinyh"), 1, Vector2(-3, -10), SubResource("SpriteFrames_fchq5"), 0.143739, Vector2(-3, -6), 1.5708, SubResource("CapsuleShape2D_q45av")],
+"version": 3
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daf6o"]
 bg_color = Color(0.931427, 0.502234, 0.425773, 1)
@@ -26,18 +140,18 @@ corner_radius_bottom_right = 5
 script = ExtResource("1_inn0m")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("2_q1pgw")]
-position = Vector2(137, 293)
-enemy_scene = ExtResource("3_f4upp")
-count = 30
-x_spread = 200.0
-y_spread = 49.0
+position = Vector2(135, 78)
+enemy_scene = SubResource("PackedScene_h6sxi")
+count = 20
+x_spread = 100.0
+y_spread = 10.0
 
-[node name="EnemySpawner2" parent="." instance=ExtResource("2_q1pgw")]
-position = Vector2(129, 188)
-enemy_scene = ExtResource("3_eapxe")
-count = 30
-x_spread = 200.0
-y_spread = 49.0
+[node name="WormSpawner" parent="." instance=ExtResource("2_q1pgw")]
+position = Vector2(136, 248)
+enemy_scene = SubResource("PackedScene_5ggow")
+count = 20
+x_spread = 80.0
+y_spread = 80.0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_ru0w6")]
 position = Vector2(136, 393)

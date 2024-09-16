@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgp7gxyeueew7"]
+
+[ext_resource type="Script" path="res://scripts/worm.gd" id="1_1u31r"]
+[ext_resource type="Texture2D" uid="uid://brlvvb2tpwnk7" path="res://assets/enemies/Sheep.png" id="2_33uip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8gdr"]
+atlas = ExtResource("2_33uip")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2yef"]
+atlas = ExtResource("2_33uip")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7jdg"]
+atlas = ExtResource("2_33uip")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufn1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8gdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2yef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7jdg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmthp"]
+radius = 4.99327
+height = 17.9977
+
+[node name="Sheep" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_1u31r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, -10)
+sprite_frames = SubResource("SpriteFrames_ufn1q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+rotation = -1.58664
+shape = SubResource("CapsuleShape2D_dmthp")

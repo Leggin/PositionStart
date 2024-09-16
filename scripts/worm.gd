@@ -1,8 +1,8 @@
 
 extends Enemy
 
-@export var min_change_time: float = 2.0 # Minimum time before changing direction
-@export var max_change_time: float = 8.0 # Maximum time before changing direction
+@export var min_change_time: float = 4.5 # Minimum time before changing direction
+@export var max_change_time: float = 10.0 # Maximum time before changing direction
 
 var direction: Vector2 = Vector2(1, 0) # Initial direction (right)
 var move_timer: float = 0.0 # Timer for switching direction
@@ -12,7 +12,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	speed = 8
 	damage = 10
-	xp = 10
+	xp = 2
 	# Randomize the move_timer with a random value between the min and max time
 	move_timer = randf_range(min_change_time, max_change_time)
 	
