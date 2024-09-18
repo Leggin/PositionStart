@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgp7gxyeueew7"]
+[gd_scene load_steps=8 format=3 uid="uid://dy3p3qbelkvv5"]
 
-[ext_resource type="Script" path="res://scripts/worm.gd" id="1_1u31r"]
+[ext_resource type="Script" path="res://scripts/sheep.gd" id="1_eyixi"]
 [ext_resource type="Texture2D" uid="uid://brlvvb2tpwnk7" path="res://assets/enemies/Sheep.png" id="2_33uip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8gdr"]
@@ -39,7 +39,7 @@ height = 17.9977
 [node name="Sheep" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
-script = ExtResource("1_1u31r")
+script = ExtResource("1_eyixi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

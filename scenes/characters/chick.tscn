@@ -1,43 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsvdq4ldjvpw7"]
+[gd_scene load_steps=8 format=3 uid="uid://bsvdq4ldjvpw7"]
+
+[ext_resource type="Texture2D" uid="uid://dr17q2pi7b37y" path="res://assets/character/Chick.png" id="1_nsikp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwjnw"]
-radius = 5.0
+radius = 13.0384
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wjnfg"]
-load_path = "res://.godot/imported/chick.png-6360f33262cea9c039f7c8eb96eff3da.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1x84e"]
-atlas = SubResource("CompressedTexture2D_wjnfg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dowe5"]
+atlas = ExtResource("1_nsikp")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_guwfe"]
-atlas = SubResource("CompressedTexture2D_wjnfg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_il5ya"]
+atlas = ExtResource("1_nsikp")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uho6e"]
-atlas = SubResource("CompressedTexture2D_wjnfg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3d75"]
+atlas = ExtResource("1_nsikp")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uku8s"]
+atlas = ExtResource("1_nsikp")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_idy8f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1x84e")
+"texture": SubResource("AtlasTexture_dowe5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_guwfe")
+"texture": SubResource("AtlasTexture_il5ya")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uho6e")
+"texture": SubResource("AtlasTexture_o3d75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uku8s")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Chick" type="Node"]
+[node name="Chick" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -12)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_jwjnw")
 
